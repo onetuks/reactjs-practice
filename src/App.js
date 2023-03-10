@@ -1,23 +1,50 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-const Father = styled.div`
+const Wraper = styled.div`
   display: flex;
 `;
 
-// <input/> 태그 > required 속성 : 폼 데이터가 서버로 제출되기 전 반드시 채워져 있어야 하는 입력 필드 명시
-const Input = styled.input.attrs({ required: true, minLength: 10 })`
-  background-color: tomato;
+const rotationAnim = keyframes`
+  0% {
+    transform: rotate(0deg);
+    border-radius: 0px;
+  }
+  50% {
+    border-radius: 100px;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-radius: 0px;
+  }
 `;
+
+const Box = styled.div`
+  background-color: tomato;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: ${rotationAnim} 1s linear infinite;
+  span {
+    font-size: 30px;
+    &:hover { 
+      font-size: 48px;
+    }
+    &:active {
+      opacity: 0;
+    }
+  }
+`;
+
 
 function App() {
   return (
-    <Father>
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-    </Father>
+    <Wraper>
+      <Box>
+        <span>😊</span>
+      </Box>
+    </Wraper>
   );
 }
 
