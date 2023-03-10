@@ -4,33 +4,19 @@ const Father = styled.div`
   display: flex;
 `;
 
-const Box = styled.div`
-  background-color: ${(props) => props.bgColor};
-  width: 100px;
-  height: 100px;
-`;
-
-const Circle = styled(Box)`
-  border-radius: 50px;
-`;
-
-const Text = styled.span`
-  color: white;
-  font-size: 40px;
-`;
-
-const Btn = styled.button`
-  color: white;
+// <input/> 태그 > required 속성 : 폼 데이터가 서버로 제출되기 전 반드시 채워져 있어야 하는 입력 필드 명시
+const Input = styled.input.attrs({ required: true, minLength: 10 })`
   background-color: tomato;
-  border: 0;
-  border-radius: 15px;
 `;
 
 function App() {
   return (
     <Father>
-      <Btn>Log In</Btn>
-      <Btn as="a" href="/">Log In</Btn>
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
     </Father>
   );
 }
