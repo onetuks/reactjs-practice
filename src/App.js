@@ -19,14 +19,18 @@ const Text = styled.span`
   font-size: 40px;
 `;
 
+const Btn = styled.button`
+  color: white;
+  background-color: tomato;
+  border: 0;
+  border-radius: 15px;
+`;
+
 function App() {
   return (
     <Father>
-      <Box bgColor="teal">
-        <Text>Hello</Text>
-      </Box>
-      <Box bgColor="tomato" />
-      <Circle bgColor="cyan"/>
+      <Btn>Log In</Btn>
+      <Btn as="a" href="/">Log In</Btn>
     </Father>
   );
 }
