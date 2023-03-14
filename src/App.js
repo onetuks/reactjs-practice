@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const Wraper = styled.div`
@@ -6,6 +7,11 @@ const Wraper = styled.div`
   height: 100vh;
   justify-content: center;
   align-items: center;
+  background-color: ${(props) => props.theme.backgroundColor};
+`;
+
+const Title = styled.h1`
+  color: ${(props) => props.theme.textColor};
 `;
 
 const rotationAnim = keyframes`
@@ -46,8 +52,15 @@ const Box = styled.div`
 `;
 
 function App() {
+  const [stop, setStop] = useState(false);
+
+  function changeStop() {
+    setStop((current) => !current);
+  }
+
   return (
     <Wraper>
+      <Title>Hello</Title>
       <Box>
         {/* 얘는 Box 컴포넌트 내에서 span 태그 말고 Emoji태그로 선언한 경우이므로, as, attr 적용시 모두 정상적으로 스타일 적용됨. */}
         <Emoji>😊</Emoji>
