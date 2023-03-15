@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 interface ContainerProps {
@@ -16,25 +17,17 @@ const Container = styled.div<ContainerProps>`
   align-items: center;
 `;
 
-// typescript optional 선언
-// 1번 방법 key?: type;
-// 2번 방법 key: type | undefined;
 interface CircleProps {
   bgColor: string;
   borderColor?: string;
-  text?: string;
 }
 
-// a ?? b -> a가 undefined가 아니면 a / undefined면 b
-function Circle({ bgColor, borderColor, text="default text" }: CircleProps) {
-  return (
-    <Container
-      bgColor={bgColor}
-      borderColor={borderColor ?? bgColor}
-    >
-        {text}
-    </Container>
-  );
+function Circle({ bgColor, borderColor }: CircleProps) {
+//   const [counter, setCounter] = useState(0);
+    const [counter, setCounter] = useState<number|string>(0);
+//   setCounter("hi");
+//   setCounter(0);
+  return <Container bgColor={bgColor} borderColor={borderColor ?? bgColor} />;
 }
 
 export default Circle;
