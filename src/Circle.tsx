@@ -1,22 +1,40 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 interface ContainerProps {
-    bgColor: string;
+  bgColor: string;
+  borderColor: string;
 }
 
 const Container = styled.div<ContainerProps>`
-    background-color: ${(props) => props.bgColor};
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
+  background-color: ${(props) => props.bgColor};
+  width: 400px;
+  height: 400px;
+  border-radius: 200px;
+  border: 3px solid ${(props) => props.borderColor};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
+// typescript optional 선언
+// 1번 방법 key?: type;
+// 2번 방법 key: type | undefined;
 interface CircleProps {
-    bgColor: string;
+  bgColor: string;
+  borderColor?: string;
+  text?: string;
 }
 
-function Circle({ bgColor }: CircleProps) {
-    return <Container bgColor={ bgColor }/>
+// a ?? b -> a가 undefined가 아니면 a / undefined면 b
+function Circle({ bgColor, borderColor, text="default text" }: CircleProps) {
+  return (
+    <Container
+      bgColor={bgColor}
+      borderColor={borderColor ?? bgColor}
+    >
+        {text}
+    </Container>
+  );
 }
 
 export default Circle;
