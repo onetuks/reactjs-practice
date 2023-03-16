@@ -27,6 +27,15 @@ const Title = styled.span<TitleProps>`
   align-items: center;
 `;
 
+interface DummyProps {
+  text: string,
+  otherThing?: boolean,
+  active?: boolean
+}
+function Dummy({ text, otherThing, active=true }:DummyProps) {
+  return <h1>{text}</h1>
+}
+
 function App() {
   const [username, setUsername] = useState("");
   const [login, setLogin] = useState(false);
@@ -42,6 +51,10 @@ function App() {
     } = event;
     setUsername(value);
   };
+
+  function plus(a:number, b:number) {
+    return a + b;
+  }
 
   return (
     <Wrapper>
@@ -61,6 +74,7 @@ function App() {
       ) : (
         <Title fontSize="20px">Please Log In</Title>
       )}
+      <Dummy text="TEXT"/>
     </Wrapper>
   );
 }
