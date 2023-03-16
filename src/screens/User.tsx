@@ -9,7 +9,6 @@ function User() {
         <p>UserId: {userId} has name of {username}.</p>
         <hr/>
         <Link to="followers">See followers</Link>
-        {/* context = {{ key: value }} */}
         <Outlet context={{ username: username }}/>
     </div>;
 }
