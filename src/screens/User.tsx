@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import { users } from "../db";
 
 function User() {
+    // const params = useParams();
+    // const userId = params.userId;
     const { userId } = useParams();
     return <div>
         <h1>User</h1>
